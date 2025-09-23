@@ -1,0 +1,80 @@
+/* ====== Base / Reset ====== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+:root{
+  --bg:#0b0b0c;
+  --panel:#0f0f12;
+  --ink:#eaeaea;
+  --muted:#b7b7bd;
+  --line:#1b1b1d;
+  --accent:#ffffff; /* bouton prensipal blan sou fon nwa */
+  --accent-ink:#0b0b0c;
+  --link:#77c1ff;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#ffffff; --panel:#f7f7f9; --ink:#111; --muted:#555; --line:#e6e6ea;
+    --accent:#111; --accent-ink:#fff; --link:#0b68d0;
+  }
+}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg); color: var(--ink); line-height: 1.65;
+}
+
+/* ====== Layout ====== */
+main{ width:min(1000px,92%); margin: 0 auto; padding: 28px 0 40px; }
+section{ padding: 22px 0; border-bottom:1px solid var(--line); }
+section:last-of-type{ border-bottom: 0; }
+
+/* ====== Header / Hero ====== */
+header{
+  position: sticky; top:0; z-index:10;
+  background: color-mix(in oklab, var(--bg), transparent 15%);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom:1px solid var(--line);
+  padding: 18px 4%;
+  text-align:center;
+}
+header h1{ margin:0 0 6px; font-size: clamp(28px,5.2vw,44px); letter-spacing:.4px; }
+header p{ margin:0; color: var(--muted); }
+
+/* ====== Typography ====== */
+h2{ font-size: clamp(22px,3.8vw,28px); margin: 0 0 8px; }
+p{ margin: 0 0 12px; }
+a{ color: var(--link); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* ====== Buttons (links ki sanble ak bouton) ====== */
+a.btn{
+  display:inline-block; padding:12px 18px; border-radius:10px;
+  background: var(--accent); color: var(--accent-ink); font-weight:700; 
+  text-decoration:none; border:1px solid var(--line);
+}
+a.btn.outline{
+  background: transparent; color: var(--ink);
+  border:1px solid var(--line);
+}
+.actions{ display:flex; gap:12px; flex-wrap: wrap; }
+
+/* ====== Cards pou “travay mwen” si w ajoute yo pita ====== */
+.cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:14px; margin-top: 8px; }
+.card{ background: var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
+.card h3{ margin:6px 0 6px; font-size: 1.05rem; }
+.card p{ color: var(--muted); }
+
+/* ====== Contact ====== */
+#contact a{ word-break: break-word; }
+
+/* ====== Footer ====== */
+footer{
+  border-top:1px solid var(--line);
+  background: var(--bg); color: var(--muted);
+  text-align:center; padding: 18px; font-size:.95rem;
+}
+
+/* ====== Small screens ====== */
+@media (max-width:640px){
+  main{ padding: 18px 0 28px; }
+  .actions{ justify-content:center; }
+}
