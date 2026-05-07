@@ -3,36 +3,272 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery by Delson</title>
+  <title>Gallery by Delson — Adikte Collection</title>
   <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Gallery by Delson</h1>
-    <p>Delson D. Desir — Designer & Creative</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Welcome</h2>
-      <p>I craft visuals and stories that connect brands, communities, and culture.</p>
-      <a href="#contact">Let’s Work Together</a>
-    </section>
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
 
-    <section>
-      <h2>My Work</h2>
-      <p>Some of the projects I’ve worked on in design, branding, and storytelling.</p>
-    </section>
+  <!-- Grain overlay -->
+  <canvas id="grain"></canvas>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:info@gallerybydelson.com">info@gallerybydelson.com</a></p>
-      <p>Instagram: <a href="https://www.instagram.com/adiktecollection">@adiktecollection</a></p>
-    </section>
-  </main>
+  <!-- NAV -->
+  <nav id="nav">
+    <span class="nav-logo">GBD</span>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-text" aria-hidden="true">ADIKTE</div>
+    <div class="hero-content">
+      <p class="hero-tag reveal">Designer &amp; Creative</p>
+      <h1 class="hero-title">
+        <span class="line reveal">Gallery</span>
+        <span class="line reveal delay-1">by Delson</span>
+      </h1>
+      <p class="hero-sub reveal delay-2">
+        I craft visuals and stories that connect<br>brands, communities, and culture.
+      </p>
+      <div class="hero-actions reveal delay-3">
+        <a href="#work" class="btn">View Work</a>
+        <a href="#contact" class="btn outline">Let's Talk</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span></span>
+      <p>Scroll</p>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Branding&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Visual Identity&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Storytelling&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Culture&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Design&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Adikte Collection&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Branding&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Visual Identity&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Storytelling&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Culture&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Design&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+      <span>Adikte Collection&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Selected Work</span>
+        <h2>Projects that<br>speak louder.</h2>
+      </div>
+
+      <div class="work-grid">
+
+        <article class="work-card reveal" data-index="01">
+          <div class="card-media">
+            <div class="card-placeholder" style="--c1:#1a1a2e;--c2:#16213e;">
+              <span>Brand</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-cta">View Project →</a>
+            </div>
+          </div>
+          <div class="card-meta">
+            <span class="card-num">01</span>
+            <div>
+              <h3>Adikte Collection</h3>
+              <p>Brand identity &amp; visual direction</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card reveal delay-1" data-index="02">
+          <div class="card-media">
+            <div class="card-placeholder" style="--c1:#0d0d0d;--c2:#2c2c2c;">
+              <span>Print</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-cta">View Project →</a>
+            </div>
+          </div>
+          <div class="card-meta">
+            <span class="card-num">02</span>
+            <div>
+              <h3>Print &amp; Editorial</h3>
+              <p>Layout design &amp; typography</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card reveal delay-2" data-index="03">
+          <div class="card-media tall">
+            <div class="card-placeholder" style="--c1:#111118;--c2:#1e1e30;">
+              <span>Social</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-cta">View Project →</a>
+            </div>
+          </div>
+          <div class="card-meta">
+            <span class="card-num">03</span>
+            <div>
+              <h3>Social Campaigns</h3>
+              <p>Content creation &amp; strategy</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-index="04">
+          <div class="card-media">
+            <div class="card-placeholder" style="--c1:#0e0e1a;--c2:#181826;">
+              <span>Web</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-cta">View Project →</a>
+            </div>
+          </div>
+          <div class="card-meta">
+            <span class="card-num">04</span>
+            <div>
+              <h3>Digital Experiences</h3>
+              <p>Web design &amp; interaction</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="work-card reveal delay-1" data-index="05">
+          <div class="card-media">
+            <div class="card-placeholder" style="--c1:#131313;--c2:#222;">
+              <span>Photo</span>
+            </div>
+            <div class="card-overlay">
+              <a href="#contact" class="card-cta">View Project →</a>
+            </div>
+          </div>
+          <div class="card-meta">
+            <span class="card-num">05</span>
+            <div>
+              <h3>Photography</h3>
+              <p>Art direction &amp; retouching</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-layout">
+      <div class="about-left reveal">
+        <span class="label">About</span>
+        <h2>Delson D. Desir</h2>
+        <p class="about-desc">
+          A designer rooted in culture, storytelling, and the power of a strong visual voice.
+          From brand identity to content creation, every project is a chance to make
+          something that moves people.
+        </p>
+        <div class="stats">
+          <div class="stat reveal delay-1">
+            <strong>5+</strong>
+            <span>Years of craft</span>
+          </div>
+          <div class="stat reveal delay-2">
+            <strong>50+</strong>
+            <span>Projects delivered</span>
+          </div>
+          <div class="stat reveal delay-3">
+            <strong>∞</strong>
+            <span>Creative drive</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-right reveal delay-2">
+        <div class="about-visual">
+          <div class="av-inner">GBD</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Services</span>
+        <h2>What I do.</h2>
+      </div>
+      <div class="services-list">
+        <div class="service-item reveal">
+          <span class="svc-num">01</span>
+          <h3>Brand Identity</h3>
+          <p>Logo systems, color palettes, typography, and brand guidelines that last.</p>
+        </div>
+        <div class="service-item reveal delay-1">
+          <span class="svc-num">02</span>
+          <h3>Visual Storytelling</h3>
+          <p>Campaign concepts and visual narratives that connect with real people.</p>
+        </div>
+        <div class="service-item reveal delay-2">
+          <span class="svc-num">03</span>
+          <h3>Content Creation</h3>
+          <p>Social-first content designed for engagement, reach, and culture.</p>
+        </div>
+        <div class="service-item reveal delay-3">
+          <span class="svc-num">04</span>
+          <h3>Art Direction</h3>
+          <p>From concept to shoot — directing visuals that feel intentional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact-inner">
+      <div class="contact-text reveal">
+        <span class="label">Contact</span>
+        <h2>Ready to build<br>something?</h2>
+        <p>Let's make work that matters. Reach out and let's talk.</p>
+      </div>
+      <div class="contact-links reveal delay-1">
+        <a href="mailto:info@gallerybydelson.com" class="contact-link">
+          <span class="cl-icon">✉</span>
+          <span>info@gallerybydelson.com</span>
+        </a>
+        <a href="https://www.instagram.com/adiktecollection" target="_blank" rel="noopener" class="contact-link">
+          <span class="cl-icon">◎</span>
+          <span>@adiktecollection</span>
+        </a>
+        <div class="cta-wrap">
+          <a href="mailto:info@gallerybydelson.com" class="btn large">Start a Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Gallery by Delson. All rights reserved.</p>
+    <div class="container footer-inner">
+      <span>© 2025 Gallery by Delson</span>
+      <span class="footer-brand">Adikte Collection</span>
+      <span>All rights reserved</span>
+    </div>
   </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
