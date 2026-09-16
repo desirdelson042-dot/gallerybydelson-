@@ -15,16 +15,37 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [checking, setChecking] = useState(true);
+  const [checkError, setCheckError] = useState<string | null>(null);
 
   useEffect(() => {
-    const supabase = createClient();
-    supabase.rpc("has_admin").then(({ data }) => {
-      if (!data) {
-        router.replace("/admin/setup");
-      } else {
+    let cancelled = false;
+
+    async function check() {
+      try {
+        const supabase = createClient();
+        const { data, error } = await supabase.rpc("has_admin");
+        if (cancelled) return;
+        if (error) {
+          setCheckError(error.message);
+          setChecking(false);
+          return;
+        }
+        if (!data) {
+          router.replace("/admin/setup");
+        } else {
+          setChecking(false);
+        }
+      } catch (err) {
+        if (cancelled) return;
+        setCheckError(err instanceof Error ? err.message : "Could not reach Supabase.");
         setChecking(false);
       }
-    });
+    }
+
+    check();
+    return () => {
+      cancelled = true;
+    };
   }, [router]);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -45,6 +66,28 @@ export default function LoginPage() {
   }
 
   if (checking) return null;
+
+  if (checkError) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-neutral-50 p-4">
+        <Card className="w-full max-w-sm">
+          <h1 className="text-lg font-semibold">Can&apos;t reach Supabase</h1>
+          <p className="mt-2 text-sm text-neutral-500">
+            {checkError}
+          </p>
+          <p className="mt-2 text-sm text-neutral-500">
+            Check that <code className="rounded bg-neutral-100 px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_URL</code>{" "}
+            and <code className="rounded bg-neutral-100 px-1 py-0.5 text-xs">NEXT_PUBLIC_SUPABASE_ANON_KEY</code>{" "}
+            are set (see <code className="rounded bg-neutral-100 px-1 py-0.5 text-xs">.env.example</code>) and that
+            your Supabase project is running, then reload this page.
+          </p>
+          <Button className="mt-4 w-full" onClick={() => window.location.reload()}>
+            Retry
+          </Button>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-neutral-50 p-4">
