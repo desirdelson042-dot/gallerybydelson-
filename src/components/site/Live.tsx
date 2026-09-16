@@ -12,6 +12,7 @@ export async function Live() {
 
   const liveNow = sessions.find((s) => s.status === "live");
 
+  // eslint-disable-next-line react-hooks/purity -- server component, evaluated once per request
   const now = Date.now();
   const upcoming = sessions
     .filter((s) => s.status === "scheduled" && s.scheduled_at && new Date(s.scheduled_at).getTime() > now)

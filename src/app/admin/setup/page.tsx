@@ -88,7 +88,7 @@ export default function SetupPage() {
       <Card className="w-full max-w-sm">
         <h1 className="text-lg font-semibold">Set up your admin account</h1>
         <p className="mt-1 text-sm text-neutral-500">
-          This is a one-time step to create the owner account for this site's dashboard.
+          This is a one-time step to create the owner account for this site&apos;s dashboard.
         </p>
         <form onSubmit={handleSubmit} className="mt-5 space-y-4">
           <Field label="Email">

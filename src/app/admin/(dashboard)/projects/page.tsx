@@ -26,6 +26,7 @@ export default function ProjectsAdminPage() {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -54,7 +55,8 @@ export default function ProjectsAdminPage() {
   }
 
   async function duplicateProject(project: Project) {
-    const { id, created_at, updated_at, ...rest } = project;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id: _id, created_at: _createdAt, updated_at: _updatedAt, ...rest } = project;
     const slug = `${project.slug}-copy-${Math.random().toString(36).slice(2, 8)}`;
     const { data, error } = await supabase
       .from("projects")

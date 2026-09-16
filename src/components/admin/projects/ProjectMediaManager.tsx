@@ -93,7 +93,7 @@ export function ProjectMediaManager({ projectId }: { projectId: string }) {
     <Card className="space-y-4">
       <div>
         <h2 className="text-sm font-semibold">Gallery media</h2>
-        <p className="mt-1 text-xs text-neutral-400">Drag to reorder. Shown on the project's detail page.</p>
+        <p className="mt-1 text-xs text-neutral-400">Drag to reorder. Shown on the project&apos;s detail page.</p>
       </div>
 
       {media.length > 0 && (

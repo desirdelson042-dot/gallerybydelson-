@@ -43,6 +43,7 @@ export function AboutEditor({
 
   async function save() {
     setSaving(true);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, updated_at, ...rest } = content;
     const { error } = await supabase.from("about_content").update(rest).eq("id", 1);
     setSaving(false);

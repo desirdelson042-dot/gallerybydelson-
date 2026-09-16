@@ -28,6 +28,7 @@ export default function MediaLibraryPage() {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -79,7 +80,7 @@ export default function MediaLibraryPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-semibold">Media library</h1>
-          <p className="mt-1 text-sm text-neutral-500">Every image and video you've uploaded, in one place.</p>
+          <p className="mt-1 text-sm text-neutral-500">Every image and video you&apos;ve uploaded, in one place.</p>
         </div>
         <input
           ref={fileRef}

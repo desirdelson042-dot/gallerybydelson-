@@ -59,7 +59,7 @@ export function ImagesTab({
   return (
     <div className="space-y-4">
       <p className="text-sm text-neutral-500">
-        Add as many Hero images as you like. Mark one as primary — that's the one shown.
+        Add as many Hero images as you like. Mark one as primary — that&apos;s the one shown.
       </p>
       <SortableList
         items={images}

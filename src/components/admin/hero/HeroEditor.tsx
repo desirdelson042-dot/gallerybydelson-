@@ -32,6 +32,7 @@ export function HeroEditor({
   async function save() {
     setSaving(true);
     const supabase = createClient();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, updated_at, ...rest } = content;
     const { error } = await supabase.from("hero_content").update(rest).eq("id", 1);
     setSaving(false);
@@ -48,7 +49,7 @@ export function HeroEditor({
         <div>
           <h1 className="text-xl font-semibold">Hero editor</h1>
           <p className="mt-1 text-sm text-neutral-500">
-            Full control over your homepage's first impression — text, images, background, and layout.
+            Full control over your homepage&apos;s first impression — text, images, background, and layout.
           </p>
         </div>
       </div>
